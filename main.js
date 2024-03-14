@@ -9,7 +9,10 @@ let highScore;
 
 
 /*----- cached elements  -----*/
-
+const redEl = document.getElementById("red");
+const blueEl = document.getElementById("blue");
+const yellowEl = document.getElementById("yellow");
+const greenEl = document.getElementById("green");
 
 
 /*----- event listeners -----*/
@@ -17,3 +20,7 @@ let highScore;
 
 
 /*----- functions -----*/
+
+function init() {
+    
+};

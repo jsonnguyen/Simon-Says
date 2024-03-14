@@ -39,11 +39,9 @@
     font-size: 80px;
   }
 
-  #colors > div:hover {
-    transform: scale(0.9);
-    transition: transform 150ms ease-in;
-    border-top-color: darkgrey;
-  }
+  /* #colors > div:hover {
+    
+  } */
   
   button {
     margin-top: 4vmin;
@@ -60,12 +58,28 @@
   }
 
   #score {
-    display: grid;
+    display: flex;
     margin-top: 25px;
+    align-items: flex-end;
+    flex-direction: column;
     align-items: flex-end;
   }
 
-  #score > div {
-    align-content: end;
+  /* #score > div {
     justify-content: right;
+  } */
+  #red {
+    background-color: darkred;
+  }
+
+  #blue {
+    background-color: darkblue;
+  }
+
+  #green {
+    background-color: darkgreen;
+  }
+
+  #yellow {
+    background-color: darkgoldenrod;
   }
