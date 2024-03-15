@@ -13,19 +13,21 @@ const AUDIO_LOOKUP = {
 let currentPattern;
 let playerPattern;
 let round;
-let highScore;
+let highScore = 0;
 
 
 /*----- cached elements  -----*/
-const redEl = document.getElementById("red");
-const blueEl = document.getElementById("blue");
-const yellowEl = document.getElementById("yellow");
-const greenEl = document.getElementById("green");
+// const redEl = document.getElementById("red");
+// const blueEl = document.getElementById("blue");
+// const yellowEl = document.getElementById("yellow");
+// const greenEl = document.getElementById("green");
 const buttonEl = document.querySelector("button");
+const colorEl = document.getElementById("colors")
 
 
 /*----- event listeners -----*/
 buttonEl.addEventListener("click", handleStart);
+colorEl.addEventListener("click", handlePlayer);
 
 
 /*----- functions -----*/
@@ -35,7 +37,7 @@ function init() {
     currentPattern = [];
     playerPattern = [];
     round = 0;
-    highScore = 0;
+    // highScore = 0;
 
     render();
 };
@@ -45,14 +47,36 @@ function handleStart() {
     renderPattern();
 };
 
+function handlePlayer(evt) {
+    if(evt.target.id === "colors") return;
+    // console.log(typeof(evt.target.id))
+    playerPattern.push(evt.target.id)
+    lightColor(evt.target.id);
+    AUDIO_LOOKUP[evt.target.id].play();
+    checkPattern();
+};
+
+function checkPattern() {
+    
+}
+
 function render() {
     renderPattern();
+};
+
+function lightColor(color) {
+    const colorEl = document.getElementById(color);
+    colorEl.style.opacity = "1";
+    setTimeout(() => {
+        colorEl.style.opacity = ".5";
+    }, 500);
 };
 
 function renderPattern() {
     let idx = 0;
     const playPattern = setInterval(function() {
         if(idx < currentPattern.length) {
+            lightColor(currentPattern[idx])
             AUDIO_LOOKUP[currentPattern[idx]].play();
             idx++
         } else {

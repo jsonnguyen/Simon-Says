@@ -39,9 +39,10 @@
     font-size: 80px;
   }
 
-  /* #colors > div:hover {
-    
-  } */
+  #colors > div:hover {
+    opacity: .7;
+  }
+
   
   button {
     margin-top: 4vmin;
@@ -69,18 +70,21 @@
     justify-content: right;
   } */
   #red {
-    background-color: darkred;
-    /* opacity: 1; */
+    background-color: red;
+    opacity: .5;
   }
 
   #blue {
-    background-color: darkblue;
+    background-color: blue;
+    opacity: .5;
   }
 
   #green {
-    background-color: darkgreen;
+    background-color: green;
+    opacity: .5;
   }
 
   #yellow {
-    background-color: darkgoldenrod;
+    background-color: yellow;
+    opacity: .5;
   }
