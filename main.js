@@ -43,9 +43,15 @@ function init() {
 };
 
 function handleStart() {
+    generatePattern();
+    buttonEl.innerText = "Play Again";
+    buttonEl.style.visibility = "hidden";
+};
+
+function generatePattern() {
     currentPattern.push(COLOR_LOOKUP[Math.floor(Math.random() * COLOR_LOOKUP.length)]);
     renderPattern();
-};
+}
 
 function handlePlayer(evt) {
     if(evt.target.id === "colors") return;
@@ -57,8 +63,27 @@ function handlePlayer(evt) {
 };
 
 function checkPattern() {
-    
-}
+    for(let i = 0; i < playerPattern.length; i++) {
+        if(playerPattern[i] !== currentPattern[i]) {
+            endGame();
+            return
+        };
+    };
+    if(playerPattern.length === currentPattern.length) {
+        playerPattern = [];
+        round++
+        if(round > highScore) {
+            highScore = round
+        };
+        generatePattern();
+    };
+};
+
+function endGame() {
+    AUDIO_LOOKUP.error.play();
+    currentPattern = [];
+    playerPattern = [];
+};
 
 function render() {
     renderPattern();
