@@ -21,22 +21,28 @@ const redEl = document.getElementById("red");
 const blueEl = document.getElementById("blue");
 const yellowEl = document.getElementById("yellow");
 const greenEl = document.getElementById("green");
+const buttonEl = document.querySelector("button");
 
 
 /*----- event listeners -----*/
-
+buttonEl.addEventListener("click", handleStart);
 
 
 /*----- functions -----*/
 init();
 
 function init() {
-    currentPattern = ["red", "blue", "yellow", "green"];
+    currentPattern = [];
     playerPattern = [];
     round = 0;
     highScore = 0;
 
     render();
+};
+
+function handleStart() {
+    currentPattern.push(COLOR_LOOKUP[Math.floor(Math.random() * COLOR_LOOKUP.length)]);
+    renderPattern();
 };
 
 function render() {
