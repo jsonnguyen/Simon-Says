@@ -13,7 +13,7 @@ const AUDIO_LOOKUP = {
 let currentPattern;
 let playerPattern;
 let round;
-let highScore = 0;
+let highScore
 
 
 /*----- cached elements  -----*/
@@ -38,7 +38,7 @@ function init() {
     currentPattern = [];
     playerPattern = [];
     round = 0;
-    // highScore = 0;
+    highScore = 0;
 
     render();
 };
@@ -56,7 +56,6 @@ function generatePattern() {
 
 function handlePlayer(evt) {
     if(evt.target.id === "colors") return;
-    // console.log(typeof(evt.target.id))
     playerPattern.push(evt.target.id)
     lightColor(evt.target.id);
     AUDIO_LOOKUP[evt.target.id].play();
@@ -79,7 +78,9 @@ function checkPattern() {
             highScore = round
             highScoreEl.innerText = `High Score: ${highScore}`
         };
-        generatePattern();
+        setTimeout(() => {
+            generatePattern();
+        }, 250);
     };
 };
 
@@ -97,24 +98,37 @@ function render() {
 };
 
 function lightColor(color) {
+    let time = 500
+    if (round > 9) {
+        time = 250
+    } else if (round > 4) {
+        time = 375
+    };
     const colorEl = document.getElementById(color);
     colorEl.style.opacity = "1";
     setTimeout(() => {
         colorEl.style.opacity = ".5";
-    }, 500);
+    }, time);
 };
 
 function renderPattern() {
     colorEl.removeEventListener("click", handlePlayer);
+    let time = 1000
+    if (round > 9) {
+        time = 500
+    } else if (round > 4) {
+        time = 750
+    };
     let idx = 0;
     const playPattern = setInterval(function() {
         if(idx < currentPattern.length) {
             lightColor(currentPattern[idx])
+            AUDIO_LOOKUP[currentPattern[idx]].currentTime = 0;
             AUDIO_LOOKUP[currentPattern[idx]].play();
             idx++
         } else {
             clearInterval(playPattern);
         }
-    }, 1000);
+    }, time);
     colorEl.addEventListener("click", handlePlayer);
 };

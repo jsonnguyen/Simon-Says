@@ -31,6 +31,8 @@
     grid-template-rows: repeat(2, 10vmin);
     gap: 1vmin;
     margin-top: 20px;
+    border: 0.1vmin solid grey;
+    border-radius: 50%;
   }
   
   #colors > div {
