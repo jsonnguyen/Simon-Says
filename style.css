@@ -24,27 +24,29 @@
     font-size: 3vmin;
     text-transform: capitalize;
   }
+
+  .board {
+    display: inline-block;
+    height: 225px;
+    width: 225px;
+    margin-left: 12px;
+
+  }
   
   #colors {
-    display: grid;
-    grid-template-columns: repeat(2, 10vmin);
-    grid-template-rows: repeat(2, 10vmin);
-    gap: 1vmin;
-    margin-top: 20px;
+    
     border: 0.1vmin solid grey;
     border-radius: 50%;
+    background-color: black;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    
+    
+
   }
   
-  #colors > div {
-    border: 0.1vmin solid grey;
-    text-align: center;
-    font-size: 80px;
-  }
-
-  #colors > div:hover {
-    opacity: .7;
-  }
-
   
   button {
     margin-top: 4vmin;
@@ -68,25 +70,32 @@
     align-items: flex-end;
   }
 
-  /* #score > div {
-    justify-content: right;
-  } */
   #red {
+    
+    border-top-left-radius: 250px;
     background-color: red;
     opacity: .5;
   }
-
+  
   #blue {
+    
+    border-bottom-left-radius: 250px;
     background-color: blue;
     opacity: .5;
+    margin-top: 10px;
   }
-
+  
   #green {
+    
+    border-top-right-radius: 250px;
     background-color: green;
     opacity: .5;
   }
-
+  
   #yellow {
+    
+    margin-top: 10px;
+    border-bottom-right-radius: 250px;
     background-color: yellow;
     opacity: .5;
   }
