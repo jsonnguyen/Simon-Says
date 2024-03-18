@@ -22,8 +22,9 @@ let highScore = 0;
 // const yellowEl = document.getElementById("yellow");
 // const greenEl = document.getElementById("green");
 const buttonEl = document.querySelector("button");
-const colorEl = document.getElementById("colors")
-
+const colorEl = document.getElementById("colors");
+const currentRoundEl = document.getElementById("current");
+const highScoreEl = document.getElementById("high");
 
 /*----- event listeners -----*/
 buttonEl.addEventListener("click", handleStart);
@@ -72,8 +73,11 @@ function checkPattern() {
     if(playerPattern.length === currentPattern.length) {
         playerPattern = [];
         round++
+        console.log(currentRoundEl)
+        currentRoundEl.innerText = `Current Score: ${round}`
         if(round > highScore) {
             highScore = round
+            highScoreEl.innerText = `High Score: ${highScore}`
         };
         generatePattern();
     };
@@ -83,6 +87,9 @@ function endGame() {
     AUDIO_LOOKUP.error.play();
     currentPattern = [];
     playerPattern = [];
+    round = 0;
+    currentRoundEl.innerText = `Current Score: ${round}`
+    buttonEl.style.visibility = "visible";
 };
 
 function render() {
@@ -98,6 +105,7 @@ function lightColor(color) {
 };
 
 function renderPattern() {
+    colorEl.removeEventListener("click", handlePlayer);
     let idx = 0;
     const playPattern = setInterval(function() {
         if(idx < currentPattern.length) {
@@ -108,4 +116,5 @@ function renderPattern() {
             clearInterval(playPattern);
         }
     }, 1000);
+    colorEl.addEventListener("click", handlePlayer);
 };
