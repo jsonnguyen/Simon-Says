@@ -8,6 +8,10 @@
 }
   
   body {
+    text-shadow: 3px 3px #131212;
+    background-image: url("assets/New_Rift.webp");
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100vh;
     margin: 0;
     font-family: "League";
@@ -40,7 +44,7 @@
   
   #colors {
     
-    border: 0.1vmin solid grey;
+    /* border: 0.1vmin solid grey; */
     border-radius: 49%;
     background-color: black;
     height: 515px;
@@ -52,12 +56,14 @@
   
   
   button {
+    font-family: League;
     margin-top: 4vmin;
     padding: 2vmin;
     font-size: 2vmin;
-    border-radius: 4vmin;
-    border: 0.1vmin solid grey;
-    color: grey;
+    border: solid darkgoldenrod;
+    border-width: 2px;
+    color: darkgoldenrod;
+    background: #20252b;
   }
   
   button:hover {
@@ -66,6 +72,7 @@
   }
 
   #score {
+    font-size: 3vmin;
     display: flex;
     margin-top: 25px;
     align-items: flex-end;
@@ -75,7 +82,7 @@
 
   #red {
     background-image: url("assets/Retreat_ping.webp");
-    background-size: 150px 150px;
+    background-size: 125px 125px;
     background-repeat: no-repeat;
     background-position: center;
     border-top-left-radius: 250px;
@@ -98,7 +105,7 @@
   
   #green {
     background-image: url("assets/Assist_Me_ping.webp");
-    background-size: 150px 150px;
+    background-size: 125px 125px;
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 12px;
@@ -123,11 +130,12 @@
     width: 200px;
     height: 200px;
     background-color: black;
-    color: white;
+    color: darkgoldenrod;
     border-radius: 50%;
     text-align: center;
     justify-content: center;
     align-items: center;
     display: flex;
-    font-size: 150px;
+    font-size: 125px;
+    margin-bottom: 60px;
   }

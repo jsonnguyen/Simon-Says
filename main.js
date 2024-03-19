@@ -5,7 +5,7 @@ const AUDIO_LOOKUP = {
     blue: new Audio("assets/Generic_ping_SFX.ogg"),
     green: new Audio("assets/Assist_Me_ping_SFX.ogg"),
     yellow: new Audio("assets/Enemy_Missing_ping_SFX.ogg"),
-    error: new Audio("https://s3.amazonaws.com/adam-recvlohe-sounds/error.wav")
+    error: new Audio("assets/you-have-been-slain-made-with-Voicemod.mp3")
 };
 
 
@@ -43,7 +43,7 @@ function init() {
 
 function handleStart() {
     generatePattern();
-    buttonEl.innerText = "Play Again";
+    buttonEl.innerText = "Play Again!";
     buttonEl.style.visibility = "hidden";
 };
 
