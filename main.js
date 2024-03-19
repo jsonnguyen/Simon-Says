@@ -5,7 +5,8 @@ const AUDIO_LOOKUP = {
     blue: new Audio("assets/Generic_ping_SFX.ogg"),
     green: new Audio("assets/Assist_Me_ping_SFX.ogg"),
     yellow: new Audio("assets/Enemy_Missing_ping_SFX.ogg"),
-    error: new Audio("assets/you-have-been-slain-made-with-Voicemod.mp3")
+    error: new Audio("assets/defeat---league-of-legends-voice-made-with-Voicemod.mp3"),
+    winner: new Audio("assets/victory!-made-with-Voicemod.mp3")
 };
 
 
@@ -22,10 +23,10 @@ const buttonEl = document.querySelector("button");
 const colorEl = document.getElementById("colors");
 const currentRoundEl = document.getElementById("current");
 const highScoreEl = document.getElementById("high");
+const h1El = document.querySelector("h1");
 
 /*----- event listeners -----*/
 buttonEl.addEventListener("click", handleStart);
-// colorEl.addEventListener("click", handlePlayer);
 
 
 /*----- functions -----*/
@@ -42,6 +43,7 @@ function init() {
 };
 
 function handleStart() {
+    h1El.innerText = "Follow the Pings!"
     generatePattern();
     buttonEl.innerText = "Play Again!";
     buttonEl.style.visibility = "hidden";
@@ -73,6 +75,10 @@ function checkPattern() {
     if(playerPattern.length === currentPattern.length) {
         playerPattern = [];
         round++
+        if(round === 10) {
+            winner();
+            return
+        };
         currentRoundEl.innerText = `${round}`
         if(round > highScore) {
             highScore = round
@@ -84,7 +90,25 @@ function checkPattern() {
     };
 };
 
+function winner() {
+    if(round > highScore) {
+        highScore = round
+        highScoreEl.innerText = `High Score: ${highScore}`
+    };
+    h1El.innerText = "Victory!"
+    AUDIO_LOOKUP.winner.volume = 0.25;
+    AUDIO_LOOKUP.winner.play();
+    currentPattern = [];
+    playerPattern = [];
+    round = 0;
+    currentRoundEl.innerText = `${round}`
+    buttonEl.style.visibility = "visible";
+    colorEl.removeEventListener("click", handlePlayer)
+};
+
 function endGame() {
+    h1El.innerText = "Try Again!"
+    AUDIO_LOOKUP.error.volume = 0.25;
     AUDIO_LOOKUP.error.play();
     currentPattern = [];
     playerPattern = [];
