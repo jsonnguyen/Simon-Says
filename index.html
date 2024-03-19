@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Says</title>
+    <title>Summoner Says</title>
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>Simon Says</header>
+    <header>Summoner Says</header>
     <h1>Follow The Pattern!</h1>
     <div id="colors">
-        <div>
+        <div id="topRow">
             <div id="red" class="board"></div>
             <div id="blue" class="board"></div>
         </div>
-        <div>
+        <div id="bottomRow">
             <div id="green" class="board"></div>
             <div id="yellow" class="board"></div>
         </div>
     </div>
+    <div id="current">0</div>
     <div id="score">
         <div id="high">High Score: 0</div>
-        <div id="current">Current Score: 0</div>
     </div>
     <button>Start Game!</button>
 

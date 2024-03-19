@@ -1,12 +1,13 @@
 /*----- constants -----*/
 const COLOR_LOOKUP = ["red", "blue", "yellow", "green"]
 const AUDIO_LOOKUP = {
-    red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
-    blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
-    green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
-    yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+    red: new Audio("assets/Retreat_ping_SFX.ogg"),
+    blue: new Audio("assets/Generic_ping_SFX.ogg"),
+    green: new Audio("assets/Assist_Me_ping_SFX.ogg"),
+    yellow: new Audio("assets/Enemy_Missing_ping_SFX.ogg"),
     error: new Audio("https://s3.amazonaws.com/adam-recvlohe-sounds/error.wav")
 };
+
 
 
 /*----- state variables -----*/
@@ -17,10 +18,6 @@ let highScore
 
 
 /*----- cached elements  -----*/
-// const redEl = document.getElementById("red");
-// const blueEl = document.getElementById("blue");
-// const yellowEl = document.getElementById("yellow");
-// const greenEl = document.getElementById("green");
 const buttonEl = document.querySelector("button");
 const colorEl = document.getElementById("colors");
 const currentRoundEl = document.getElementById("current");
@@ -28,7 +25,7 @@ const highScoreEl = document.getElementById("high");
 
 /*----- event listeners -----*/
 buttonEl.addEventListener("click", handleStart);
-colorEl.addEventListener("click", handlePlayer);
+// colorEl.addEventListener("click", handlePlayer);
 
 
 /*----- functions -----*/
@@ -39,6 +36,7 @@ function init() {
     playerPattern = [];
     round = 0;
     highScore = 0;
+    
 
     render();
 };
@@ -55,9 +53,12 @@ function generatePattern() {
 }
 
 function handlePlayer(evt) {
-    if(evt.target.id === "colors") return;
+    if(!COLOR_LOOKUP.includes(evt.target.id)) return;
+    console.log(evt.target)
     playerPattern.push(evt.target.id)
     lightColor(evt.target.id);
+    AUDIO_LOOKUP[evt.target.id].currentTime = 0;
+    AUDIO_LOOKUP[evt.target.id].volume = 0.25;
     AUDIO_LOOKUP[evt.target.id].play();
     checkPattern();
 };
@@ -72,8 +73,7 @@ function checkPattern() {
     if(playerPattern.length === currentPattern.length) {
         playerPattern = [];
         round++
-        console.log(currentRoundEl)
-        currentRoundEl.innerText = `Current Score: ${round}`
+        currentRoundEl.innerText = `${round}`
         if(round > highScore) {
             highScore = round
             highScoreEl.innerText = `High Score: ${highScore}`
@@ -89,8 +89,9 @@ function endGame() {
     currentPattern = [];
     playerPattern = [];
     round = 0;
-    currentRoundEl.innerText = `Current Score: ${round}`
+    currentRoundEl.innerText = `${round}`
     buttonEl.style.visibility = "visible";
+    colorEl.removeEventListener("click", handlePlayer)
 };
 
 function render() {
@@ -124,6 +125,7 @@ function renderPattern() {
         if(idx < currentPattern.length) {
             lightColor(currentPattern[idx])
             AUDIO_LOOKUP[currentPattern[idx]].currentTime = 0;
+            AUDIO_LOOKUP[currentPattern[idx]].volume = 0.25;
             AUDIO_LOOKUP[currentPattern[idx]].play();
             idx++
         } else {

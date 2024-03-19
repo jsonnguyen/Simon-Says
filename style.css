@@ -1,26 +1,31 @@
 * {
     box-sizing: border-box;
   }
+
+  @font-face {
+    font-family: League;
+    src: url("assets/League.otf") format("opentype");
+}
   
   body {
-    /* viewport units: vh (viewport height), vw, vmin (smallest between vh & vw) */
     height: 100vh;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "League";
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: darkgoldenrod;
   }
   
   header {
     font-size: 4vmin;
-    color: darkgrey;
+    color: darkgoldenrod;
     letter-spacing: 1vmin;
   }
   
   h1 {
-    color: grey;
+    color: darkgoldenrod;
     font-size: 3vmin;
     text-transform: capitalize;
   }
@@ -29,22 +34,20 @@
     display: inline-block;
     height: 225px;
     width: 225px;
-    margin-left: 12px;
+    margin-left: 16px;
 
   }
   
   #colors {
     
     border: 0.1vmin solid grey;
-    border-radius: 50%;
+    border-radius: 49%;
     background-color: black;
-    height: 500px;
-    width: 500px;
+    height: 515px;
+    width: 515px;
     display: flex;
     align-items: center;
     
-    
-
   }
   
   
@@ -71,31 +74,60 @@
   }
 
   #red {
-    
+    background-image: url("assets/Retreat_ping.webp");
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-position: center;
     border-top-left-radius: 250px;
     background-color: red;
     opacity: .5;
+    margin-bottom: 12px;
   }
   
   #blue {
-    
+    background-image: url("assets/Generic_ping.webp");
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-position: center;
     border-bottom-left-radius: 250px;
     background-color: blue;
     opacity: .5;
-    margin-top: 10px;
+    margin-top: 12px;
+    
   }
   
   #green {
-    
+    background-image: url("assets/Assist_Me_ping.webp");
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 12px;
     border-top-right-radius: 250px;
     background-color: green;
     opacity: .5;
   }
   
   #yellow {
-    
-    margin-top: 10px;
+    background-image: url("assets/Enemy_Missing_ping.webp");
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 12px;
     border-bottom-right-radius: 250px;
     background-color: yellow;
     opacity: .5;
+  }
+
+  #current {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 150px;
   }
