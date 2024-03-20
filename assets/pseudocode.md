@@ -16,7 +16,7 @@
     4.2 Render those values to the page
         4.2.1 - iterate through pattern and "light" the colors accordingly
     4.3 Wait for the user to click start button
-        4.3.1 - Use randomizer for 0-3 to pick a color from color object and push to pattern array for each round
+        4.3.1 - Use randomizer for idx 0-3 to pick a color from color object and push to pattern array for each round
 
 5. Handle a player clicking a color
     5.1 - push the color to playerPattern
