@@ -56,7 +56,6 @@ function generatePattern() {
 
 function handlePlayer(evt) {
     if(!COLOR_LOOKUP.includes(evt.target.id)) return;
-    console.log(evt.target)
     playerPattern.push(evt.target.id)
     lightColor(evt.target.id);
     AUDIO_LOOKUP[evt.target.id].currentTime = 0;
