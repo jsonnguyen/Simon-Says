@@ -38,8 +38,6 @@ function init() {
     round = 0;
     highScore = 0;
     
-
-    render();
 };
 
 function handleStart() {
@@ -79,21 +77,22 @@ function checkPattern() {
             return
         };
         currentRoundEl.innerText = `${round}`
-        if(round > highScore) {
-            highScore = round
-            highScoreEl.innerText = `High Score: ${highScore}`
-        };
+        checkHighScore();
         setTimeout(() => {
             generatePattern();
         }, 250);
     };
 };
 
-function winner() {
+function checkHighScore() {
     if(round > highScore) {
         highScore = round
         highScoreEl.innerText = `High Score: ${highScore}`
     };
+};
+
+function winner() {
+    checkHighScore();
     h1El.innerText = "Victory!"
     AUDIO_LOOKUP.winner.volume = 0.25;
     AUDIO_LOOKUP.winner.play();
@@ -117,9 +116,6 @@ function endGame() {
     colorEl.removeEventListener("click", handlePlayer)
 };
 
-function render() {
-    renderPattern();
-};
 
 function lightColor(color) {
     let time = 500
