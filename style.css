@@ -79,48 +79,48 @@
     align-items: flex-end;
   }
 
+  #green {
+    background-size: 125px 125px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-top-left-radius: 250px;
+    background-image: url("assets/Assist_Me_ping.webp");
+    opacity: .5;
+    margin-bottom: 12px;
+    background-color: green;
+  }
+  
+  #yellow {
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("assets/Enemy_Missing_ping.webp");
+    border-bottom-left-radius: 250px;
+    opacity: .5;
+    background-color: yellow;
+    margin-top: 12px;
+    
+  }
+  
   #red {
     background-image: url("assets/Retreat_ping.webp");
     background-size: 125px 125px;
     background-repeat: no-repeat;
     background-position: center;
-    border-top-left-radius: 250px;
+    margin-bottom: 12px;
+    border-top-right-radius: 250px;
     background-color: red;
     opacity: .5;
-    margin-bottom: 12px;
   }
   
   #blue {
-    background-image: url("assets/Generic_ping.webp");
-    background-size: 150px 150px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-bottom-left-radius: 250px;
     background-color: blue;
-    opacity: .5;
-    margin-top: 12px;
-    
-  }
-  
-  #green {
-    background-image: url("assets/Assist_Me_ping.webp");
-    background-size: 125px 125px;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 12px;
-    border-top-right-radius: 250px;
-    background-color: green;
-    opacity: .5;
-  }
-  
-  #yellow {
-    background-image: url("assets/Enemy_Missing_ping.webp");
+    background-image: url("assets/Generic_ping.webp");
     background-size: 150px 150px;
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 12px;
     border-bottom-right-radius: 250px;
-    background-color: yellow;
     opacity: .5;
   }
 
