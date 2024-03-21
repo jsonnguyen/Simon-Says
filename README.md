@@ -1,5 +1,5 @@
 # Simon Says(Summoner Says)
-Simon Says is a classic memory game that tests players' ability to recall and replicate sequences of colors, sounds, or actions. The game is typically played with a series of colored buttons that light up or produce sounds in a specific sequence. Players must then replicate the sequence by pressing the buttons in the same order. The sequences become progressively longer and more complex as the game advances, challenging players to remember and reproduce longer patterns accurately. This version of Simon Says is Leage of Legends theme.
+Simon Says is a classic memory game that tests players' ability to recall and replicate sequences of colors, sounds, or actions. The game is typically played with a series of colored buttons that light up or produce sounds in a specific sequence. Players must then replicate the sequence by pressing the buttons in the same order. The sequences become progressively longer and more complex as the game advances, challenging players to remember and reproduce longer patterns accurately. This version of Simon Says is League of Legends theme.
 
 # Screenshot
 
